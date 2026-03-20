@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Rank Predictor</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+        <style>
+            body {
+                background-color: #f8f9fa;
+            }
+            .container {
+                margin-top: 20px;
+                padding: 20px;
+                background-color: white;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                width: 800px;
+                font-family: 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            }
+            .btn-custom {
+                width: 180px;
+                height: 46px;
+                border-radius: 23px;
+                background-color: rgb(13, 126, 13);
+                color: white;
+                border: none;
+                transition: 0.2s ease-in-out;
+            }
+            .btn-custom:hover {
+                background-color: rgb(21, 93, 52);
+                transform: scale(1.03);
+            }
+            .form-control {
+                border: 2px solid rgb(13, 126, 13);
+                border-radius: 4px;
+                font-size: 16px;
+            }
+            #percentile {
+                transition: transform 0.2s ease;
+            }
+            #percentile:hover {
+                transform: scale(1.03);   
+            }
+            a {
+                text-decoration: none;
+            }
+            a:hover{
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body style="background: linear-gradient(150deg,rgb(88, 189, 88), rgb(8, 68, 34));min-height: 100vh;">
+        <div class="container" style="text-align: center;">
+            <h1 style="font-weight: bolder;">Welcome to JEE-Main Rank Predictor</h1>
+            <p>Enter your percentile and predict your All India Rank(Open Category)</p>
+        </div>
+        <div class="container" style="border-radius: 10px; width: 500px; height:440px; margin-top:40px;">
+             <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="percentile" class="form-label">Percentile</label>
+                    <input type="text" class="form-control" id="percentile" name="percentile" value="{{ percentile }}" placeholder="Enter your percentile" required>
+                </div>
+                <button type="submit" class="btn-custom" onclick="check()" style="margin: 0 auto; display: block;">Predict Rank</button>
+                <label for="rank" class="form-label" style="margin-top:20px;">Predicted Rank range(approx.)</label>
+                <input type="text" class="form-control" id="rank" name="rank" value="{{ rll }} - {{ rul }}" readonly><br />
+                <button type="button" class="btn-custom" onclick="clearForm()" style="margin: 0 auto; display: block;">Clear</button>
+                <p style="font-size: small; margin-top: 20px;">Note: These are approximate values based on previous years' data.</p>
+                <a href="/working" style="width: 180px; height: 35px; margin: 0 auto; display: block;text-align: center;">Explore working</a>
+            </form>
+
+        </div>
+    </body>
+    
+
+    <script>
+        function check() {
+            var percentile = document.getElementById("percentile").value;
+            if (percentile < 0 || percentile > 100) {
+                alert("Please enter a valid percentile between 0 and 100.");
+                document.getElementById("percentile").value = "";
+                document.getElementById("rank").value = "";
+                //return false;
+            }
+            //return true;
+        }
+
+        function clearForm() {
+            document.getElementById("percentile").value = "";
+            document.getElementById("rank").value = "";
+        }
+    </script>
+</html>
