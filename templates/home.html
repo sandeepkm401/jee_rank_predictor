@@ -60,7 +60,7 @@
                     <label for="percentile" class="form-label">Percentile</label>
                     <input type="text" class="form-control" id="percentile" name="percentile" value="{{ percentile }}" placeholder="Enter your percentile" required>
                 </div>
-                <button type="submit" class="btn-custom" onclick="check()" style="margin: 0 auto; display: block;">Predict Rank</button>
+                <button type="submit" class="btn-custom" onclick="return check()" style="margin: 0 auto; display: block;">Predict Rank</button>
                 <label for="rank" class="form-label" style="margin-top:20px;">Predicted Rank range(approx.)</label>
                 <input type="text" class="form-control" id="rank" name="rank" value="{{ rll }} - {{ rul }}" readonly><br />
                 <button type="button" class="btn-custom" onclick="clearForm()" style="margin: 0 auto; display: block;">Clear</button>
@@ -78,10 +78,10 @@
             if (percentile < 0 || percentile > 100) {
                 alert("Please enter a valid percentile between 0 and 100.");
                 document.getElementById("percentile").value = "";
-                document.getElementById("rank").value = "";
-                //return false;
+                //document.getElementById("rank").value = "";
+                return false;
             }
-            //return true;
+            return true;
         }
 
         function clearForm() {
