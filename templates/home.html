@@ -21,7 +21,8 @@
                 background-color: white;
                 border-radius: 25px;
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                width: 60%;
+                width: 80%;
+                max-width: 850px;
                 font-family: 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             }
             .btn-custom {
@@ -56,7 +57,7 @@
             <h1 style="font-weight: bolder;">Welcome to JEE-Main Rank Predictor</h1>
             <p>Enter your percentile and predict your All India Rank(Open Category)</p>
         </div>
-        <div class="container" style="width: 50%; height:44%; margin-top:40px; border-top: 5px solid rgb(13, 126, 13);">
+        <div class="container" style="width: 80%; max-width: 600px; height:44%; margin-top:40px; border-top: 5px solid rgb(13, 126, 13);">
              <form method="post">
                 {% csrf_token %}
                 <div class="mb-3" style="padding-bottom: 10px;">
