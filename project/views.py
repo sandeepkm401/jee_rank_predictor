@@ -20,7 +20,7 @@ def rankpredictor(request):
         rll = rank - 264
         if rll <= 0:
             rll = 2
-        rul = rank + 209
+        rul = rank + 264
 
         if percentile == 100:
             rll = 1
