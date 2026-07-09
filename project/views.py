@@ -4,8 +4,10 @@ from sklearn.linear_model import LinearRegression
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
+from pathlib import Path
 
-df = pd.read_csv(r"C:\Users\sande\Downloads\jee_percentile_vs_air_5000_students.csv")
+BASE_DIR = Path(__file__).resolve().parent.parent
+df = pd.read_csv(BASE_DIR / "jee_percentile_vs_air_5000_students.csv")
 X = df.drop("All_India_Rank", axis = 1)
 y = df["All_India_Rank"]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 42)
