@@ -20,6 +20,6 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("rank-predictor", views.rankpredictor, name = "rankpredictor"),
-    path("working", views.working, name = "working")
+    path("", views.rankpredictor, name = "rankpredictor"),
+    path("working/", views.working, name = "working")
 ]
