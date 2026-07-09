@@ -7,10 +7,12 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
         <link rel="icon" type="image/x-icon" href="{% static 'omen_owel.jpg' %}">
         <style>
-            html, body {
-                background: linear-gradient(150deg,rgb(88, 189, 88), rgb(8, 68, 34));
+            html {
                 min-height: 100%;
                 margin: 0;
+            }
+            body {
+                background: linear-gradient(150deg,rgb(88, 189, 88), rgb(8, 68, 34));
             }
             .container {
                 margin-top: 20px;
@@ -22,7 +24,8 @@
                 font-family: 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             }
             .btn-custom {
-                width: 180px;
+                width: 60%;
+                max-width: 180px;
                 height: 46px;
                 border-radius: 23px;
                 background-color: rgb(13, 126, 13);
